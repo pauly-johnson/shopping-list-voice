@@ -47,6 +47,7 @@ const ShoppingList = () => {
 
   return (
     <div>
+          <button onClick={clearList}>Clear Shopping List</button>
       <h2>Shopping List</h2>
       <ul>
         {items.map((item, index) => (
@@ -67,7 +68,6 @@ const ShoppingList = () => {
         <button onClick={handleAddItem}>Add Item</button>
       </div>
       <VoiceInput addItem={addItem} />
-      <button onClick={clearList}>Clear List</button>
     </div>
   );
 };
