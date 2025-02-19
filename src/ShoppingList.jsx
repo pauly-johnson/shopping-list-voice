@@ -1,12 +1,31 @@
-import React, { useState } from 'react';
-import VoiceInput from './VoiceInput';
+import React, { useState, useEffect } from "react";
+import VoiceInput from "./VoiceInput";
 
 const ShoppingList = () => {
-  const [items, setItems] = useState(['Milk', 'Bread', 'Eggs']); // Example items
-  const [newItem, setNewItem] = useState('');
+  const [items, setItems] = useState(() => {
+    // Load items from localStorage
+    const savedItems = localStorage.getItem("shoppingList");
+    return savedItems ? JSON.parse(savedItems) : ["Add Item"];
+  });
+  const [newItem, setNewItem] = useState("");
+
+  useEffect(() => {
+    // Save items to localStorage whenever the items state changes
+    localStorage.setItem("shoppingList", JSON.stringify(items));
+  }, [items]);
 
   const addItem = (item) => {
     setItems([...items, item]);
+  };
+
+  const deleteItem = (index) => {
+    const newItems = items.filter((_, i) => i !== index);
+    setItems(newItems);
+  };
+
+  const clearList = () => {
+    setItems([]);
+    localStorage.removeItem("shoppingList");
   };
 
   const handleTextInput = (e) => {
@@ -16,12 +35,12 @@ const ShoppingList = () => {
   const handleAddItem = () => {
     if (newItem.trim()) {
       addItem(newItem);
-      setNewItem('');
+      setNewItem("");
     }
   };
 
   const handleKeyDown = (e) => {
-    if (e.key === 'Enter') {
+    if (e.key === "Enter") {
       handleAddItem();
     }
   };
@@ -31,7 +50,10 @@ const ShoppingList = () => {
       <h2>Shopping List</h2>
       <ul>
         {items.map((item, index) => (
-          <li key={index}>{item}</li>
+          <li key={index}>
+            {item}
+            <button onClick={() => deleteItem(index)}>Delete</button>
+          </li>
         ))}
       </ul>
       <div>
@@ -45,6 +67,7 @@ const ShoppingList = () => {
         <button onClick={handleAddItem}>Add Item</button>
       </div>
       <VoiceInput addItem={addItem} />
+      <button onClick={clearList}>Clear List</button>
     </div>
   );
 };
