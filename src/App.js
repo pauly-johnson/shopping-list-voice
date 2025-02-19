@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import ShoppingList from './ShoppingList';
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
         <h1>Welcome to the Shopping List App</h1>
         <p>Add items to your shopping list using voice or text input.</p>
       </header>
+      <ShoppingList />
     </div>
   );
 }
