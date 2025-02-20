@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from "react";
 import VoiceInput from "./VoiceInput";
+import '../src/App.css';
 
 const ShoppingList = () => {
   const [items, setItems] = useState(() => {
-    // Load items from localStorage
     const savedItems = localStorage.getItem("shoppingList");
     return savedItems ? JSON.parse(savedItems) : ["Add Item"];
   });
   const [newItem, setNewItem] = useState("");
 
   useEffect(() => {
-    // Save items to localStorage whenever the items state changes
     localStorage.setItem("shoppingList", JSON.stringify(items));
   }, [items]);
 
@@ -47,7 +46,7 @@ const ShoppingList = () => {
 
   return (
     <div>
-          <button onClick={clearList}>Clear Shopping List</button>
+      <button onClick={clearList}>Clear Shopping List</button>
       <h2>Shopping List</h2>
       <ul>
         {items.map((item, index) => (
