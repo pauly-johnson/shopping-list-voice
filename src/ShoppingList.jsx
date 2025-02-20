@@ -52,7 +52,7 @@ const ShoppingList = () => {
         {items.map((item, index) => (
           <li key={index}>
             {item}
-            <button onClick={() => deleteItem(index)}>Delete</button>
+            <button className="deleteBtn" onClick={() => deleteItem(index)}>Delete</button>
           </li>
         ))}
       </ul>

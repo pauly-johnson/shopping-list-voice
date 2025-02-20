@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './App.css';
 
 const VoiceInput = ({ addItem }) => {
   const [isListening, setIsListening] = useState(false);
@@ -33,7 +34,7 @@ const VoiceInput = ({ addItem }) => {
 
   return (
     <div>
-      <button onClick={handleVoiceInput} disabled={isListening}>
+      <button className='voiceInput' onClick={handleVoiceInput} disabled={isListening}>
         {isListening ? 'Listening...' : 'Add Item by Voice'}
       </button>
     </div>
