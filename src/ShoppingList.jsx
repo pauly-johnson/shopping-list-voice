@@ -5,7 +5,7 @@ import '../src/App.css';
 const ShoppingList = () => {
   const [items, setItems] = useState(() => {
     const savedItems = localStorage.getItem("shoppingList");
-    return savedItems ? JSON.parse(savedItems) : ["Add Item"];
+    return savedItems ? JSON.parse(savedItems) : [];
   });
   const [newItem, setNewItem] = useState("");
 
