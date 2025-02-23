@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import VoiceInput from "./VoiceInput";
-import '../src/App.css';
+import "../src/App.css";
 
 const ShoppingList = () => {
   const [items, setItems] = useState(() => {
@@ -45,29 +45,38 @@ const ShoppingList = () => {
   };
 
   return (
-    <div>
-      <button onClick={clearList}>Clear Shopping List</button>
-      <h2>Shopping List</h2>
-      <ul>
-        {items.map((item, index) => (
-          <li key={index}>
-            {item}
-            <button className="deleteBtn" onClick={() => deleteItem(index)}>Delete</button>
-          </li>
-        ))}
-      </ul>
-      <div>
-        <input
-          type="text"
-          value={newItem}
-          onChange={handleTextInput}
-          onKeyDown={handleKeyDown}
-          placeholder="Add new item"
-        />
-        <button onClick={handleAddItem}>Add Item</button>
+    <>
+      <div className="shoppingListContainer">
+        <button className="clearListBtn" onClick={clearList}>
+          Clear Shopping List
+        </button>
+        <h2>Shopping List</h2>
+        <ul>
+          {items.map((item, index) => (
+            <li key={index}>
+              <p>{item}</p>
+              <button className="deleteBtn" onClick={() => deleteItem(index)}>
+                Delete
+              </button>
+            </li>
+          ))}
+        </ul>
+        <div className="blank"></div>
+        <div className="inputContainer">
+          <input
+            type="text"
+            value={newItem}
+            onChange={handleTextInput}
+            onKeyDown={handleKeyDown}
+            placeholder="Add new item"
+          />
+          <button className="addItemBtn" onClick={handleAddItem}>
+            Add Item
+          </button>
+          <VoiceInput addItem={addItem} />
+        </div>
       </div>
-      <VoiceInput addItem={addItem} />
-    </div>
+    </>
   );
 };
 

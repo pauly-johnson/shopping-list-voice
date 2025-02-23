@@ -34,14 +34,39 @@ body {
   background-color: #f5f5f5;
 }
 
+/* .shoppingListContainer {
+  
+} */
+
+.blank {
+  height: 100px;
+}
+
+.inputContainer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  background: linear-gradient(#d9e3fa, #e6aefc);
+}
+
 button {
-  background-color: #18a81d;
   color: white;
   padding: 10px 30px;
   margin: 8px 0;
   border: none;
   border-radius: 10px;
   cursor: pointer;
+}
+
+.addItemBtn {
+  background-color: #18a81d;
+  margin: 5px 0px;
+}
+
+.clearListBtn {
+  background-color: #f71a0a;
 }
 
 .deleteBtn {
@@ -53,7 +78,7 @@ button {
   background-color: #002fff;
   color: white;
   padding: 10px 30px;
-  margin: 8px 0;
+  margin: 0px 0px 5px 0px;
   border: none;
   border-radius: 10px;
   cursor: pointer;
@@ -61,14 +86,15 @@ button {
 
 input {
   padding: 10px;
-  margin: 8px 0;
+  margin: 5px 0;
   border-radius: 10px;
   border: 2px solid #ccc;
 }
 
 li {
   width: 100%;
-  max-width: 350px;
+  width: 250px;
+  max-width: 400px;
   display: flex;
   padding: 0px 15px;
   margin: 8px 0px;
@@ -79,4 +105,9 @@ li {
   font-size: 1.2em;
   font-weight: 500;
   text-transform: capitalize;
+}
+
+li p {
+  color: black;
+  overflow: hidden;
 }
