@@ -46,14 +46,14 @@ const ShoppingList = () => {
 
   return (
     <>
-      <div className="shoppingListContainer">
+      <div className="shoppingListContainer responsiveContainer">
         <button className="clearListBtn" onClick={clearList}>
           Clear Shopping List
         </button>
         <h2>Shopping List</h2>
-        <ul>
+        <ul className="shoppingList">
           {items.map((item, index) => (
-            <li key={index}>
+            <li key={index} className="shoppingListItem">
               <p>{item}</p>
               <button className="deleteBtn" onClick={() => deleteItem(index)}>
                 Delete
@@ -69,6 +69,7 @@ const ShoppingList = () => {
             onChange={handleTextInput}
             onKeyDown={handleKeyDown}
             placeholder="Add new item"
+            className="inputField"
           />
           <button className="addItemBtn" onClick={handleAddItem}>
             Add Item

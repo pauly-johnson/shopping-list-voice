@@ -111,3 +111,57 @@ li p {
   color: black;
   overflow: hidden;
 }
+
+/* Responsive styles for mobile */
+@media (max-width: 600px) {
+  .shoppingListContainer,
+  .responsiveContainer {
+    width: 100vw;
+    min-width: 0;
+    padding: 0 5px;
+    box-sizing: border-box;
+  }
+  .shoppingList {
+    padding-left: 0;
+    width: 100vw;
+    min-width: 0;
+  }
+  .shoppingListItem,
+  li {
+    width: 95vw;
+    min-width: 0;
+    font-size: 1em;
+    padding: 0 5px;
+    margin: 8px auto;
+  }
+  .inputContainer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    padding: 5px 2vw;
+    background: linear-gradient(#d9e3fa, #e6aefc);
+    box-shadow: 0 -2px 8px rgba(0,0,0,0.08);
+    z-index: 10;
+  }
+  .inputField {
+    width: 60vw;
+    min-width: 0;
+    font-size: 1em;
+  }
+  .addItemBtn, .voiceInput {
+    width: 30vw;
+    min-width: 80px;
+    font-size: 1em;
+    margin: 5px 2vw;
+  }
+  .clearListBtn {
+    width: 90vw;
+    margin: 10px 0 5px 0;
+    font-size: 1em;
+  }
+  h2 {
+    font-size: 1.3em;
+    margin: 10px 0 5px 0;
+  }
+}
