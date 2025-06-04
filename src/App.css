@@ -112,6 +112,60 @@ li p {
   overflow: hidden;
 }
 
+/* Confirmation Modal Styles */
+.confirmModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+.confirmBox {
+  background: #fff;
+  padding: 24px 18px;
+  border-radius: 16px;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.18);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 220px;
+}
+.confirmBox p {
+  margin-bottom: 18px;
+  color: #222;
+  font-size: 1.1em;
+}
+.confirmBtn,
+.cancelBtn {
+  display: inline-block;
+  margin: 0 8px;
+}
+.confirmBtn {
+  background-color: #18a81d;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.cancelBtn {
+  background-color: #f71a0a;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.confirmBox .buttonRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
 /* Responsive styles for mobile */
 @media (max-width: 600px) {
   .shoppingListContainer,
@@ -141,7 +195,7 @@ li p {
     width: 100vw;
     padding: 5px 2vw;
     background: linear-gradient(#d9e3fa, #e6aefc);
-    box-shadow: 0 -2px 8px rgba(0,0,0,0.08);
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.08);
     z-index: 10;
   }
   .inputField {
@@ -149,7 +203,8 @@ li p {
     min-width: 0;
     font-size: 1em;
   }
-  .addItemBtn, .voiceInput {
+  .addItemBtn,
+  .voiceInput {
     width: 30vw;
     min-width: 80px;
     font-size: 1em;
@@ -163,5 +218,26 @@ li p {
   h2 {
     font-size: 1.3em;
     margin: 10px 0 5px 0;
+  }
+  .confirmBox {
+    min-width: 70vw;
+    padding: 18px 4vw;
+  }
+  .confirmBox p {
+    font-size: 1em;
+  }
+  .confirmBtn,
+  .cancelBtn {
+    width: 40vw;
+    min-width: 90px;
+    margin: 5px 2vw;
+    font-size: 1em;
+  }
+  .confirmBox .buttonRow {
+    flex-direction: row;
+    gap: 8px;
+  }
+  .confirmBox {
+    flex-direction: column;
   }
 }

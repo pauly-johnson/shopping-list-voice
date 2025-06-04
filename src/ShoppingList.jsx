@@ -8,6 +8,9 @@ const ShoppingList = () => {
     return savedItems ? JSON.parse(savedItems) : [];
   });
   const [newItem, setNewItem] = useState("");
+  const [showConfirm, setShowConfirm] = useState(false);
+  const [confirmAction, setConfirmAction] = useState(null);
+  const [deleteIndex, setDeleteIndex] = useState(null);
 
   useEffect(() => {
     localStorage.setItem("shoppingList", JSON.stringify(items));
@@ -44,10 +47,38 @@ const ShoppingList = () => {
     }
   };
 
+  const handleDeleteClick = (index) => {
+    setDeleteIndex(index);
+    setConfirmAction("delete");
+    setShowConfirm(true);
+  };
+
+  const handleClearClick = () => {
+    setConfirmAction("clear");
+    setShowConfirm(true);
+  };
+
+  const handleConfirm = () => {
+    if (confirmAction === "delete" && deleteIndex !== null) {
+      deleteItem(deleteIndex);
+      setDeleteIndex(null);
+    } else if (confirmAction === "clear") {
+      clearList();
+    }
+    setShowConfirm(false);
+    setConfirmAction(null);
+  };
+
+  const handleCancel = () => {
+    setShowConfirm(false);
+    setConfirmAction(null);
+    setDeleteIndex(null);
+  };
+
   return (
     <>
       <div className="shoppingListContainer responsiveContainer">
-        <button className="clearListBtn" onClick={clearList}>
+        <button className="clearListBtn" onClick={handleClearClick}>
           Clear Shopping List
         </button>
         <h2>Shopping List</h2>
@@ -55,12 +86,35 @@ const ShoppingList = () => {
           {items.map((item, index) => (
             <li key={index} className="shoppingListItem">
               <p>{item}</p>
-              <button className="deleteBtn" onClick={() => deleteItem(index)}>
+              <button
+                className="deleteBtn"
+                onClick={() => handleDeleteClick(index)}
+              >
                 Delete
               </button>
             </li>
           ))}
         </ul>
+        {/* Confirmation Modal */}
+        {showConfirm && (
+          <div className="confirmModal">
+            <div className="confirmBox">
+              <p>
+                {confirmAction === "clear"
+                  ? "Are you sure you want to clear the shopping list?"
+                  : "Are you sure you want to delete this item?"}
+              </p>
+              <div className="buttonRow">
+                <button className="confirmBtn" onClick={handleConfirm}>
+                  Yes
+                </button>
+                <button className="cancelBtn" onClick={handleCancel}>
+                  No
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
         <div className="blank"></div>
         <div className="inputContainer">
           <input
