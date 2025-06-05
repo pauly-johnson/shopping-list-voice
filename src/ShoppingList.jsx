@@ -95,7 +95,6 @@ const ShoppingList = () => {
             </li>
           ))}
         </ul>
-        {/* Confirmation Modal */}
         {showConfirm && (
           <div className="confirmModal">
             <div className="confirmBox">

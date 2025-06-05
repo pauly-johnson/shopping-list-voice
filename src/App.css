@@ -112,7 +112,6 @@ li p {
   overflow: hidden;
 }
 
-/* Confirmation Modal Styles */
 .confirmModal {
   position: fixed;
   top: 0;
@@ -166,7 +165,7 @@ li p {
   width: 100%;
 }
 
-/* Responsive styles for mobile */
+/* Responsive mobile */
 @media (max-width: 600px) {
   .shoppingListContainer,
   .responsiveContainer {
@@ -203,13 +202,13 @@ li p {
     min-width: 0;
     font-size: 1em;
   }
-  .addItemBtn,
+  /* .addItemBtn,
   .voiceInput {
     width: 30vw;
     min-width: 80px;
     font-size: 1em;
     margin: 5px 2vw;
-  }
+  } */
   .clearListBtn {
     width: 90vw;
     margin: 10px 0 5px 0;
